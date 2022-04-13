@@ -8,7 +8,7 @@ https://www.canva.com/design/DAE9NQ3TBfc/jijoXcIMw5IsCLeMEf2W_Q/view?utm_content
 
 Team Members -
 
-Ojas Jain, Department of Mechanical Engineering, IIT Bombay
-Areeb Asgar, Department of Mechanical Engineering, IIT Bombay
-Tanmay Nitul Jain, Department of Mechanical Engineering, IIT Bombay
-Ayush Ramteke, Department of Computer Science Engineering, IIT Bombay
+1. Ojas Jain, Department of Mechanical Engineering, IIT Bombay
+2. Areeb Asgar, Department of Mechanical Engineering, IIT Bombay
+3. Tanmay Nitul Jain, Department of Mechanical Engineering, IIT Bombay
+4. Ayush Ramteke, Department of Computer Science Engineering, IIT Bombay
