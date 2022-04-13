@@ -1,0 +1,595 @@
+<?xml version="1.0" ?>
+
+<robot name="bot1">
+    
+  <material name="black">
+    <color rgba="0.0 0.0 0.0 1.0"/>
+  </material>
+  <material name="blue">
+    <color rgba="0.4117647 0.70588823 1.0 1.0"/>
+  </material>
+  <material name="white">
+    <color rgba="1.0 1.0 1.0 1.0"/>
+  </material>
+  <material name="grey">
+    <color rgba="0.75 0.75 0.75 1.0"/>
+  </material>
+
+<gazebo reference="link_chassis">
+  <material>Gazebo/Light Blue</material>
+</gazebo>
+<gazebo reference="link_right_wheel">
+  <material>Gazebo/Black</material>
+</gazebo>
+<gazebo reference="link_left_wheel">
+  <material>Gazebo/Black</material>
+</gazebo>
+<gazebo reference="link_camera">
+  <material>Gazebo/Grey</material>
+</gazebo>
+<gazebo reference="link_lidar">
+  <material>Gazebo/Black</material>
+</gazebo>
+
+
+  <link name="link_chassis">
+    <pose>0 0 0.155 0 0 0</pose>
+    
+    <inertial>
+      <mass value="15"/>
+      <origin rpy="0 0 0" xyz="0 0 0.1"/>
+      <inertia ixx="0.0395416666667" ixy="0" ixz="0" iyy="0.106208333333" iyz="0" izz="0.106208333333"/>
+    </inertial>
+    
+    <collision name="collision_horizontal_plate">
+      <geometry>
+        <box size="0.48 0.36 0.01"/>
+      </geometry>
+    </collision>
+    
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.48 0.36 0.01"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <collision name="collision_bottom_back">
+      <origin rpy="0 0 0" xyz="-0.235 0 -0.06"/>
+      <geometry>
+        <box size="0.01 0.36 0.11"/>
+      </geometry>
+    </collision>
+    
+    <visual name="visual_bottom_back">
+      <origin rpy="0 0 0" xyz="-0.235 0 -0.06"/>
+      <geometry>
+        <box size="0.01 0.36 0.11"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <collision name="collision_bottom_right">
+      <origin rpy="0 0 0" xyz="0 -0.175 -0.06"/>
+      <geometry>
+        <box size="0.48 0.01 0.11"/>
+      </geometry>
+    </collision>
+    
+    <visual name="visual_bottom_right">
+      <origin rpy="0 0 0" xyz="0 -0.175 -0.06"/>
+      <geometry>
+        <box size="0.48 0.01 0.11"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <collision name="collision_bottom_left">
+      <origin rpy="0 0 0" xyz="0 0.175 -0.06"/>
+      <geometry>
+        <box size="0.48 0.01 0.11"/>
+      </geometry>
+    </collision>
+    
+    <visual name="visual_bottom_left">
+      <origin rpy="0 0 0" xyz="0 0.175 -0.06"/>
+      <geometry>
+        <box size="0.48 0.01 0.11"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <collision name="collision_top_right">
+      <origin rpy="0 0 0" xyz="-0.025 -0.175 0.055"/>
+      <geometry>
+        <box size="0.43 0.01 0.10"/>
+      </geometry>
+    </collision>
+    
+    <visual name="visual_top_right">
+      <origin rpy="0 0 0" xyz="-0.025 -0.175 0.055"/>
+      <geometry>
+        <box size="0.43 0.01 0.10"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <collision name="collision_top_left">
+      <origin rpy="0 0 0" xyz="-0.025 0.175 0.055"/>
+      <geometry>
+        <box size="0.43 0.01 0.10"/>
+      </geometry>
+    </collision>
+    
+    <visual name="visual_top_left">
+      <origin rpy="0 0 0" xyz="-0.025 0.175 0.055"/>
+      <geometry>
+        <box size="0.43 0.01 0.10"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <collision name="collision_top_front">
+      <origin rpy="0 0 0" xyz="0.185 0 0.055"/>
+      <geometry>
+        <box size="0.01 0.36 0.10"/>
+      </geometry>
+    </collision>
+    
+    <visual name="visual_top_front">
+      <origin rpy="0 0 0" xyz="0.185 0 0.055"/>
+      <geometry>
+        <box size="0.01 0.36 0.10"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <collision name="caster_front_right_collision">
+      <origin rpy="0 0 0" xyz="0.235 -0.165 -0.13995"/>
+      <geometry>
+        <sphere radius="0.015"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0</mu>
+            <mu2>0</mu2>
+            <slip1>1.0</slip1>
+            <slip2>1.0</slip2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+
+    <visual name="caster_front_right_visual">
+      <origin rpy="0 0 0" xyz="0.235 -0.165 -0.13995"/>
+      <geometry>
+        <sphere radius="0.015"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+
+    <collision name="caster_front_left_collision">
+      <origin rpy="0 0 0" xyz="0.235 0.165 -0.13995"/>
+      <geometry>
+        <sphere radius="0.015"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0</mu>
+            <mu2>0</mu2>
+            <slip1>1.0</slip1>
+            <slip2>1.0</slip2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+
+    <visual name="caster_front_left_visual">
+      <origin rpy="0 0 0" xyz="0.235 0.165 -0.13995"/>
+      <geometry>
+        <sphere radius="0.015"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+
+    <collision name="caster_back_right_collision">
+      <origin rpy="0 0 0" xyz="-0.225 -0.165 -0.13995"/>
+      <geometry>
+        <sphere radius="0.015"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0</mu>
+            <mu2>0</mu2>
+            <slip1>1.0</slip1>
+            <slip2>1.0</slip2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+
+    <visual name="caster_back_right_visual">
+      <origin rpy="0 0 0" xyz="-0.225 -0.165 -0.13995"/>
+      <geometry>
+        <sphere radius="0.015"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+
+    <collision name="caster_back_left_collision">
+      <origin rpy="0 0 0" xyz="-0.225 0.165 -0.13995"/>
+      <geometry>
+        <sphere radius="0.015"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0</mu>
+            <mu2>0</mu2>
+            <slip1>1.0</slip1>
+            <slip2>1.0</slip2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+
+    <visual name="caster_back_left_visual">
+      <origin rpy="0 0 0" xyz="-0.225 0.165 -0.13995"/>
+      <geometry>
+        <sphere radius="0.015"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+
+    <collision name="collision_back_right">
+      <origin rpy="0 0 0" xyz="-0.1 -0.15 -0.06"/>
+      <geometry>
+        <box size="0.26 0.04 0.11"/>
+      </geometry>
+    </collision>
+    
+    <visual name="visual_back_right">
+      <origin rpy="0 0 0" xyz="-0.1 -0.15 -0.06"/>
+      <geometry>
+        <box size="0.26 0.04 0.11"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <collision name="collision_back_left">
+      <origin rpy="0 0 0" xyz="-0.1 0.15 -0.06"/>
+      <geometry>
+        <box size="0.26 0.04 0.11"/>
+      </geometry>
+    </collision>
+    
+    <visual name="visual_back_left">
+      <origin rpy="0 0 0" xyz="-0.1 0.15 -0.06"/>
+      <geometry>
+        <box size="0.26 0.04 0.11"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <collision name="collision_front_right">
+      <origin rpy="0 0 0" xyz="0.13 -0.15 -0.06"/>
+      <geometry>
+        <box size="0.20 0.04 0.11"/>
+      </geometry>
+    </collision>
+    
+    <visual name="visual_front_right">
+      <origin rpy="0 0 0" xyz="0.13 -0.15 -0.06"/>
+      <geometry>
+        <box size="0.20 0.04 0.11"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <collision name="collision_front_left">
+      <origin rpy="0 0 0" xyz="0.13 0.15 -0.06"/>
+      <geometry>
+        <box size="0.20 0.04 0.11"/>
+      </geometry>
+    </collision>
+    
+    <visual name="visual_front_left">
+      <origin rpy="0 0 0" xyz="0.13 0.15 -0.06"/>
+      <geometry>
+        <box size="0.20 0.04 0.11"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    </link>
+
+  <link name="link_right_wheel">    
+    <inertial>
+      <mass value="0.2"/>
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <inertia ixx="0.00052666666" ixy="0" ixz="0" iyy="0.00052666666" iyz="0" izz="0.001"/>
+    </inertial>
+    
+    <collision name="link_right_wheel_collision">
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0" />
+      <geometry>
+        <cylinder length="0.05" radius="0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.5</mu>
+            <mu2>0.5</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    
+    <visual name="link_right_wheel_visual">
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.05"/>
+      </geometry> 
+      <material name="black"/>     
+    </visual>
+    
+  </link>
+    
+  <joint name="joint_right_wheel" type="continuous">
+    <origin rpy="0 0 0" xyz="0 -0.215 -0.105"/>
+    <child link="link_right_wheel" />
+    <parent link="link_chassis"/>
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <limit effort="10000" velocity="1000"/>
+    <joint_properties damping="1.0" friction="1.0" />
+  </joint>  
+    
+  <link name="link_left_wheel">    
+    <inertial>
+      <mass value="0.2"/>
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <inertia ixx="0.00052666666" ixy="0" ixz="0" iyy="0.00052666666" iyz="0" izz="0.001"/>
+    </inertial>
+    
+    <collision name="link_left_wheel_collision">
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0" />
+      <geometry>
+        <cylinder length="0.05" radius="0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.5</mu>
+            <mu2>0.5</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    
+    <visual name="link_left_wheel_visual">
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.05"/>
+      </geometry>   
+      <material name="black"/>   
+    </visual>
+    
+  </link>
+    
+  <joint name="joint_left_wheel" type="continuous">
+    <origin rpy="0 0 0" xyz="0 0.215 -0.105"/>
+    <child link="link_left_wheel" />
+    <parent link="link_chassis"/>
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <limit effort="10000" velocity="1000"/>
+    <joint_properties damping="1.0" friction="1.0" />
+  </joint>    
+
+  <link name="link_front_gate">
+    
+    <inertial>
+      <mass value="0.25"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0.0395416666667" ixy="0" ixz="0" iyy="0.106208333333" iyz="0" izz="0.106208333333"/>
+    </inertial>
+
+    <collision name="collision_front_gate">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.36 0.02"/>
+      </geometry>
+    </collision>
+    
+    <visual name="visual_front_gate">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.36 0.02"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+
+  </link>
+
+  <joint name="joint_front_gate" type="prismatic">
+    <parent link="link_chassis"/>
+    <child link="link_front_gate"/>
+    <limit effort="1000.0" lower="0" upper="0.095" velocity="0.5"/>
+    <origin rpy="0 0 0" xyz="0.245 0 -0.105"/>
+    <axis xyz="0 0 1"/>
+    <dynamics damping="0.0" friction="0.75"/>
+  </joint>
+
+  <link name="link_camera">
+    
+    <inertial>
+      <mass value="0.1"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0.0395416666667" ixy="0" ixz="0" iyy="0.106208333333" iyz="0" izz="0.106208333333"/>
+    </inertial>
+
+    <collision name="collision_camera">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.035 0.08 0.03"/>
+      </geometry>
+    </collision>
+    
+    <visual name="visual_camera">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.035 0.08 0.03"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+
+  </link>
+
+  <joint name="joint_camera" type="fixed">
+    <origin xyz="0.2075 0 0.090" rpy="0 0 0"/>
+    <parent link="link_chassis"/>
+    <child link="link_camera"/>
+  </joint>
+
+  <link name="link_lidar">
+    
+    <inertial>
+      <mass value="0.1"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0.0395416666667" ixy="0" ixz="0" iyy="0.106208333333" iyz="0" izz="0.106208333333"/>
+    </inertial>
+
+    <collision name="collision_lidar">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.016 0.035 0.015"/>
+      </geometry>
+    </collision>
+    
+    <visual name="visual_lidar">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.016 0.035 0.015"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+
+  </link>
+
+  <joint name="joint_lidar" type="fixed">
+    <origin xyz="0.003 0 0.0175" rpy="0 0 0"/>
+    <parent link="link_front_gate"/>
+    <child link="link_lidar"/>
+  </joint>
+
+<gazebo>
+    <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>20</updateRate>
+      <leftJoint>joint_left_wheel</leftJoint>
+      <rightJoint>joint_right_wheel</rightJoint>
+      <wheelSeparation>0.43</wheelSeparation>
+      <wheelDiameter>0.1</wheelDiameter>
+      <torque>0.1</torque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>link_chassis</robotBaseFrame>
+    </plugin>
+  </gazebo>
+
+<gazebo reference="link_lidar">
+    <sensor type="ray" name="head_hokuyo_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>false</visualize>
+      <update_rate>20</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-1.570796</min_angle>
+            <max_angle>1.570796</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>10.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/bot1/laser/scan</topicName>
+        <frameName>link_lidar</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+<gazebo reference="link_camera">
+  <sensor name="camera1" type="depth">
+    <update_rate>20</update_rate>
+    <camera>
+      <horizontal_fov>1.047198</horizontal_fov>
+      <image>
+        <width>640</width>
+        <height>480</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>0.005</near>
+        <far>20.0</far>
+      </clip>
+    </camera>
+    <plugin name="camera_controller" filename="libgazebo_ros_openni_kinect.so">
+      <baseline>0.2</baseline>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>0.0</updateRate>
+      <cameraName>/bot1/camera1</cameraName>
+      <imageTopicName>/camera1/color/image_raw</imageTopicName>
+      <cameraInfoTopicName>/camera1/color/camera_info</cameraInfoTopicName>
+      <depthImageTopicName>/camera1/depth/image_raw</depthImageTopicName>
+      <depthImageInfoTopicName>/camera1/depth/camera_info</depthImageInfoTopicName>
+      <pointCloudTopicName>/camera1/depth/points</pointCloudTopicName>
+      <frameName>link_camera</frameName>
+      <pointCloudCutoff>0.005</pointCloudCutoff>
+      <pointCloudCutoffMax>20.0</pointCloudCutoffMax>
+      <distortionK1>0.00000001</distortionK1>
+      <distortionK2>0.00000001</distortionK2>
+      <distortionK3>0.00000001</distortionK3>
+      <distortionT1>0.00000001</distortionT1>
+      <distortionT2>0.00000001</distortionT2>
+      <CxPrime>0</CxPrime>
+      <Cx>0</Cx>
+      <Cy>0</Cy>
+      <focalLength>0</focalLength>
+      <hackBaseline>0</hackBaseline>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+  </plugin>
+</gazebo>
+
+  <transmission name="tran_gate">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_front_gate">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="gate_actuator">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+</robot>
+  

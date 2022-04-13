@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find umic)/urdf/bot1.urdf'" />
+  
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="0.5"/>
+
+<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model bot1 -x $(arg x) -y $(arg y) -z $(arg z)" />
+<node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0.2075 0 0.090 -0.5000003366023252 0.49999932679455644 -0.5000003366023252 0.5000000000001132 link_chassis link_camera 100" />
+</launch>
